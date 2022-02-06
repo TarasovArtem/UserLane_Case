@@ -4,6 +4,14 @@ export const enum BlockList {
     Career_Opportunities = '#jobs-container'   
 }
 
+export const enum UserData {
+  name = "Artem",
+  email =  "hello@cypress.io",
+  phone = "+49111111111111111",
+  notice_period = "2 weeks",
+  salary = "60000 euro"
+}
+
 export const enum URL {
     userlane_careers = 'https://www.userlane.com/careers/',
     apply_page = 'https://jobs.lever.co/userlane/19b969e3-e406-486c-82e6-483f62fe597f'
