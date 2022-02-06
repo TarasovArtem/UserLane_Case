@@ -27,13 +27,24 @@ describe('Visit the Userlane career page, check if any QA position is open, and 
         applyPage.getSalaryExpectations().type(UserData.salary);
         applyPage.getTechnicalSkills('Yes').check();
         applyPage.getPrivacyPolicyCheckBox().check();
-        //applyPage.getCaptcha().check()
-        cy.intercept({
-            method: 'GET',
-            url: '**/apply'
-        }).as('getApply');
+        //applyPage.getCaptcha().check() // 
+
+        //cy.intercept({
+        //    method: 'GET',
+        //    url: '**/apply'
+        //}).as('getApply');
+        //applyPage.getSubmitApplication().click();
+        //cy.wait('@getApply').its('response.statusCode').should('eq', 200);
+        
+        cy.intercept('POST','**/apply').as('getApply');
         applyPage.getSubmitApplication().click();
-        cy.wait('@getApply').its('response.statusCode').should('eq', 200);
+        cy.wait('@getApply').should(({request, response}) => {
+            console.log(request);
+            expect(request.body).to.include('email');
+
+            console.log(response);
+            expect(response.body).to.have.property('email', 'hello@cypress.io')
+        })
         
     })
 
