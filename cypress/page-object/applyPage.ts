@@ -45,5 +45,9 @@ class ApplyPage {
     /*getCaptcha() {
         return cy.get('#anchor');
     }*/
+
+    getSubmitApplication() {
+        return cy.get('[data-qa="btn-submit"]');
+    }
 }
 export default ApplyPage;

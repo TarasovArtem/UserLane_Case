@@ -14,7 +14,8 @@ export const enum UserData {
 
 export const enum URL {
     userlane_careers = 'https://www.userlane.com/careers/',
-    apply_page = 'https://jobs.lever.co/userlane/19b969e3-e406-486c-82e6-483f62fe597f'
+    apply_page = 'https://jobs.lever.co/userlane/19b969e3-e406-486c-82e6-483f62fe597f',
+    applyPageForm = 'https://jobs.lever.co/userlane/19b969e3-e406-486c-82e6-483f62fe597f/apply'
 }
 
 export const enum JobList {
