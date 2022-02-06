@@ -1,10 +1,15 @@
 /// <reference types="Cypress" />
 
-export const enum BlockList{
+export const enum BlockList {
     Career_Opportunities = '#jobs-container'   
 }
 
-export const enum JobList{
+export const enum URL {
+    userlane_careers = 'https://www.userlane.com/careers/',
+    apply_page = 'https://jobs.lever.co/userlane/19b969e3-e406-486c-82e6-483f62fe597f'
+}
+
+export const enum JobList {
     Customer_Onboarding_Manager = 'Customer Onboarding Manager', 
     Customer_Success_Manager = 'Customer Success Manager',
     Solution_Consultant = 'Solution Consultant',

@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { Navigation, CareerOpportunities, CareerPage, BlockList, JobList }  from '../page-object/index';
+import { Navigation, CareerOpportunities, CareerPage, ApplyPage, BlockList, JobList, URL }  from '../page-object/index';
 
 
 
@@ -9,13 +9,15 @@ describe('Visit the Userlane career page, check if any QA position is open, and 
     const navigation = new Navigation();
     const careerOpportunities = new CareerOpportunities();
     const careerPage = new CareerPage();
+    const applyPage = new ApplyPage();
 
     beforeEach(() => {
         navigation.careerPage();
+        
     })
 
     it('Should be visit the Userlane career page and show careers block', () => {
-        navigation.getUrlPage().should('eq', 'https://www.userlane.com/careers/');    
+        navigation.getUrlPage().should('eq', URL.userlane_careers);    
         careerPage.getCareerPage().find(BlockList.Career_Opportunities);
     })
 
@@ -46,7 +48,7 @@ describe('Visit the Userlane career page, check if any QA position is open, and 
 
         })
         careerOpportunities.getJob().contains(JobList.Automation_Test_Engineer).should('have.text', JobList.Automation_Test_Engineer);
-        careerOpportunities.getJob().contains(JobList.Automation_Test_Engineer).click();
+        careerOpportunities.getQaItem().invoke('removeAttr', 'target').click();
+        navigation.getUrlPage().should('include', URL.apply_page);
     })
-
 })
