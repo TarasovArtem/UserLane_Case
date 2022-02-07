@@ -1,4 +1,11 @@
 {
+  "author": "Artem Tarasov",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "chrome": "cypress run --spec 'cypress/integration/**' --headless --browser chrome",
+    "firefox": "cypress run --spec 'cypress/integration/**' --headless --browser firefox",
+    "edge": "cypress run --spec 'cypress/integration/**' --headless --browser edge"
+  }, 
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.11.0",
     "cypress": "^9.4.1",
