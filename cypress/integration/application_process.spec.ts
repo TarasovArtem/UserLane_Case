@@ -1,10 +1,10 @@
 /// <reference types="Cypress" />
 
-import { Navigation, ApplyPage, UserData, URL }  from '../page-object/index';
+import { Navigation, ApplyPage, UserData, URL }  from '../page_object/index';
 
 
 
-describe('Visit the Userlane career page, check if any QA position is open, and apply for the position', () => {
+describe('Visit to opened QA position , and apply for the position', () => {
     
     const navigation = new Navigation();
     const applyPage = new ApplyPage();
@@ -27,16 +27,9 @@ describe('Visit the Userlane career page, check if any QA position is open, and 
         applyPage.getSalaryExpectations().type(UserData.salary);
         applyPage.getTechnicalSkills('Yes').check();
         applyPage.getPrivacyPolicyCheckBox().check();
-        //applyPage.getCaptcha().check() // 
-
-        //cy.intercept({
-        //    method: 'GET',
-        //    url: '**/apply'
-        //}).as('getApply');
-        //applyPage.getSubmitApplication().click();
-        //cy.wait('@getApply').its('response.statusCode').should('eq', 200);
+        //applyPage.getCaptcha().check() // To bypass the captcha there are several options (2Captcha, Puppeteer), but I think the best option is to disable it for the test version. 
         
-        cy.intercept('POST','**/apply').as('getApply');
+        cy.intercept('POST','**/apply').as('getApply');   
         applyPage.getSubmitApplication().click();
         cy.wait('@getApply').should(({request, response}) => {
             console.log(request);

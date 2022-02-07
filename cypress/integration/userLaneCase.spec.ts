@@ -1,10 +1,10 @@
 /// <reference types="Cypress" />
 
-import { Navigation, CareerOpportunities, CareerPage, ApplyPage, BlockList, JobList, URL }  from '../page-object/index';
+import { Navigation, CareerOpportunities, CareerPage, ApplyPage, BlockList, JobList, URL }  from '../page_object/index';
 
 
 
-describe('Visit the Userlane career page, check if any QA position is open, and apply for the position', () => {
+describe('Visit the Userlane career page, check if any QA position is open', () => {
     
     const navigation = new Navigation();
     const careerOpportunities = new CareerOpportunities();
