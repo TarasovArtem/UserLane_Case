@@ -28,7 +28,7 @@ describe('Visit to opened QA position , and apply for the position', () => {
         applyPage.getTechnicalSkills('Yes').check();
         applyPage.getPrivacyPolicyCheckBox().check();
         //applyPage.getCaptcha().check() // To bypass the captcha there are several options (2Captcha, Puppeteer), but I think the best option is to disable it for the test version. 
-        
+        //Important: The test is working if you disable the captcha
         cy.intercept('POST','**/apply').as('getApply');   
         applyPage.getSubmitApplication().click();
         cy.wait('@getApply').should(({request, response}) => {
